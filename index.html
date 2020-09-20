@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Favicons-->
+  <link rel="apple-touch-icon" sizes="144x144" href="./img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!--Favicons-->
+  <meta name="description" name="Наполните свой организм полезными 
+  витаминами и наслаждайтесь сладким вкусом 
+  фруктовой мякоти">
+  <title>Fruits</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!--PRELOADER FOR MOBILE DEVICES-->
+  <div class="mask">
+    <div class="loader">
+
+    </div>
+  </div>
+  <!--PRELOADER FOR MOBILE DEVICES-->
+
+  <!--modal window-->
+  <!--MODAL CART-->
+  <div class="modal">
+    <div class="modal__body">
+      <div class="modal__content">
+        <img class="modal-img" src="./img/modal-bg.png" alt="">
+        <div class="modal__fruits-img">
+          <img class="modal-ananas" src="./img/modal-ananas.png" alt="">
+          <img src="./img/modal-kivi.png" alt="">
+        </div>
+        <div class="modal__content-top">
+          <div class="modal__content-title">Корзина</div>
+          <div class="modal__content-close">
+            <div class="close-item close-1"></div>
+            <div class="close-item close-2"></div>
+          </div>
+        </div>
+        <div class="modal__content-main">
+          <div class="modal__product-block">
+
+          </div>
+          <div class="modal__order-block">
+            <p class="modal__order-block-text">Итого к оплате:</p>
+            <p class="modal__order-block-price"></p>
+            <a class="modal__order-block-btn btn" href="">Оформить заказ</a>
+          </div>
+
+          <div class="modal__empty-block">
+            <i class="fas fa-shopping-bag empty-icon"></i>
+            <p class="modal__empty-text">Корзина пустая</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL CART-->
+
+  <!--MODAL REVIEW-->
+  <div class="review-modal">
+    <div class="modal__review-body">
+      <div class="modal__review-content">
+        <div class="modal__review-top">
+          <div class="modal__content-close">
+            <div class="close-item close-1"></div>
+            <div class="close-item close-2"></div>
+          </div>
+          <h3 class="modal__review-content-title">Что вы думаете о нас ?</h3>
+        </div>
+        <div class="modal__review-main">
+          <div class="review-main__top">
+            <div class="review-name__block">
+              <i class="fas fa-user user-icon"></i>
+              <input type="text" placeholder="Имя" class="review-name">
+            </div>
+            <div class="reviews-modal__main-stars" id="modalReviewStar">
+
+            </div>
+          </div>
+          <div class="review-main__text">
+            <textarea id="reviewTextarea" cols="80" rows="10"></textarea>
+          </div>
+          <button id="modalReviewBtn" class="btn reviews-main__btn">Отправить отзыв</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL REVIEW-->
+
+
+  <!--MODAL ORDER-->
+  <div class="order-modal">
+    <div class="modal__order-body">
+      <div class="modal__order-content">
+        <div class="modal__order-top">
+          <h3 class="modal__order-content-title">Оформление заказа</h3>
+        </div>
+        <div class="modal__order-main">
+          <div class="order-main__left-block">
+            <div class="order__inputs">
+              <div>
+                <img class="order__input-icon" src="./img/user.png" alt="">
+                <input class="order__input-item" type="text" placeholder="Имя">
+              </div>
+
+              <div>
+                <img class="order__input-icon" src="./img/user.png" alt="">
+                <input class="order__input-item" type="text" placeholder="Фамилия">
+              </div>
+
+              <div>
+                <img class="order__input-icon" src="./img/phone.png" alt="">
+                <input class="order__input-item" type="text" id="phoneInput" placeholder="+38(___)-___-__-__">
+              </div>
+
+              <div>
+                <img class="order__input-icon" src="./img/mark.png" alt="">
+                <input class="order__input-item" type="text" placeholder="Город">
+              </div>
+
+              <div>
+                <img class="order__input-icon home-icon" src="./img/home.png" alt="">
+                <input class="order__input-item" type="text" placeholder="Адресс">
+              </div>
+            </div>
+          </div>
+          <div class="order-main__right-block">
+            <div>
+              <div class="method-pay">
+                <div class="method-pay__title">Метод оплаты</div>
+                <div class="method-pay__inputs">
+                  <div class="courier__input">
+                    <input type="radio" id="courier" name="radio__input">
+                    <span class="radio-span"></span>
+                    <label for="courier">Наличными курьеру</label>
+                  </div>
+                  <div class="card__input">
+                    <input type="radio" id="card" name="radio__input">
+                    <span class="radio-span"></span>
+                    <label for="card">Банковской картой</label>
+                  </div>
+                </div>
+              </div>
+              <div class="data-card">
+                <div class="data-card__title">Введите данные вашей карты</div>
+                <div>
+                  <img class="data-card__img" src="./img/card.png" alt="">
+                  <input class="data-card__input" id="dataCardInput" placeholder="____ - ____ - ____ - ____"
+                    type="text">
+                </div>
+                <div class="data-card__items">
+                  <input class="data-card__input" type="text" placeholder="Exp Date">
+                  <input class="data-card__input" type="text" placeholder="CVV код">
+                </div>
+              </div>
+            </div>
+            <div class="cost-item">Итого к оплате:<span class="cost-item__span">1200₴</span></div>
+
+          </div>
+
+        </div>
+        <div class="order-btn__block">
+          <button class="btn modal__order-btn modal-second">Вернуться в корзину</button>
+          <button id="modalOrder" class="btn modal__order-btn">Сделать заказ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL ORDER-->
+
+
+  <header class="header">
+    <div class="container">
+      <div class="header__top wow fadeInDown" data-wow-duration=".8s">
+        <div class="header__logo">
+          <img src="./img/logo.png" alt="">
+        </div>
+        <nav class="header__nav">
+          <a href="#catalog" class="header__nav-item">Каталог</a>
+          <a href="#about" class="header__nav-item">О нас</a>
+          <a href="#delivery" class="header__nav-item">Доставка</a>
+          <a href="#reviews" class="header__nav-item">Отзывы</a>
+          <a href="#contacts" class="header__nav-item">Контакты</a>
+        </nav>
+        <div class="header__items">
+          <div class="header__cart">
+            <button class="header__cart-btn"><i class="fas fa-shopping-basket"></i> 0₴</button>
+            <p class="header__cart-text">1 товаров</p>
+          </div>
+          <div class="header__contacts">
+            <a class="header__contacts-tel" href="tel: +380953215478"><i class="fas fa-phone"></i>
+              <span>+380953215478</span></a>
+            <p class="header__contacts-text">Обратный звонок</p>
+          </div>
+          <button class="nav__btn">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div class="header__main">
+        <div class="main__left-block">
+          <h1 class="title wow bounceInLeft" data-wow-duration="1s">доставка фруктов</h1>
+          <p class="subtitle wow bounceInLeft" data-wow-duration="1s">Наполните свой организм полезными <br>
+            витаминами и наслаждайтесь сладким вкусом <br>
+            фруктовой мякоти</p>
+          <div class="main__btn-block">
+            <a href="#" class="main__btn btn wow flip" data-wow-duration="1s"><i class="fas fa-shopping-basket"></i> В
+              корзину</a>
+            <a href="#catalog" class="btn-second btn wow rotateIn" data-wow-duration="1s">Перейти в каталог</a>
+          </div>
+        </div>
+        <div class="main__right-block">
+          <div class="fruit-slider wow flipInX " data-wow-duration="1s">
+            <div class="slider__item" data-quantity="1" data-name="Ананас" data-img="./img/product-ananas.png"
+              data-price="140">
+              <div class="slider__item-content">
+                <div class="item__description">
+                  <h3 class="item__description-title">Ананас</h3>
+                  <p class="item__description-text"><strong>Витамины</strong> - А, В, С, D, PP</p>
+                  <p class="item__description-text"><strong>Состав</strong> - 85% вода,<br>
+                    15% моносахариды</p>
+                  <p class="item__description-text"><strong>Ккал / 100г</strong> - 55</p>
+                </div>
+                <div class="item__picture">
+                  <img src="./img/main-ananas.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="slider__item" data-quantity="1" data-name="Кокос" data-img="./img/kokos.png" data-price="35">
+              <div class="slider__item-content">
+                <div class="item__description">
+                  <h3 class="item__description-title">Кокос</h3>
+                  <p class="item__description-text"><strong>Витамины</strong> - В, С</p>
+                  <p class="item__description-text"><strong>Состав</strong> - Белки 4%<br>
+                    Жиры 89%, Углеводы 7%</p>
+                  <p class="item__description-text"><strong>Ккал / 100г</strong> - 364</p>
+                </div>
+                <div class="item__picture picture-kokos">
+                  <img src="./img/main-kokos.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="slider__item" data-quantity="1" data-name="Малина" data-img="./img/raspberry.png"
+              data-price="25">
+              <div class="slider__item-content">
+                <div class="item__description">
+                  <h3 class="item__description-title">Малина</h3>
+                  <p class="item__description-text"><strong>Витамины</strong> - А, В, С, РР</p>
+                  <p class="item__description-text"><strong>Состав</strong> - 85% вода,<br>
+                    11,5% сахар, 3.5% углеводы</p>
+                  <p class="item__description-text"><strong>Ккал / 100г</strong> - 41</p>
+                </div>
+                <div class="item__picture picture-raspberry">
+                  <img src="./img/main-raspberry.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--BACKGROUND SLIDER-->
+          <div class="bg-slider__block">
+            <div class="bg-slider">
+              <div class="bg-slider__item"><img class="main__background" src="./img/orange-bg.png" alt=""></div>
+              <div class="bg-slider__item"><img class="main__background" src="./img/blue-bg.png" alt=""></div>
+              <div class="bg-slider__item"><img class="main__background" src="./img/pink-bg.png" alt=""></div>
+            </div>
+          </div>
+          <!--BACKGROUND SLIDER-->
+
+        </div>
+      </div>
+    </div>
+    <!--GRAPEFRUITE IMAGES-->
+    <div class="grapefruite">
+      <div class="grapefruite-block wow zoomIn" data-wow-duration="1s" data-wow-offset="300">
+        <img src="./img/grapefruite.png" alt="" class="grapefruite-img wow rotateIn" data-wow-duration="1.5s"
+          data-wow-offset="400">
+        <img src="./img/grapefruiteBlur.png" alt="" class="grapefruite-img__blur wow rotateIn" data-wow-duration="1.5s"
+          data-wow-offset="400">
+      </div>
+    </div>
+    <!--GRAPEFRUITE IMAGES-->
+  </header>
+
+
+  <section id="catalog" class="catalog">
+    <div class="container">
+      <h2 class="section-title wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">Каталог</h2>
+      <div class="catalog__filter">
+        <a href="#" data-filter="all" data-val="on"
+          class="all catalog__filter-item btn focused wow fadeInUp animate__animated" data-wow-duration=".7s"
+          data-wow-offset="200">Все</a>
+        <a href="#" data-filter="exotic" data-val="off" class="catalog__filter-item btn wow fadeInUp animate__animated"
+          data-wow-duration=".7s" data-wow-offset="200">Экзотические</a>
+        <a href="#" data-filter="rosa" data-val="off" class="catalog__filter-item btn wow fadeInUp animate__animated"
+          data-wow-duration=".7s" data-wow-offset="200">Розоцветные</a>
+        <a href="#" data-filter="berries" data-val="off" class="catalog__filter-item btn wow fadeInUp animate__animated"
+          data-wow-duration=".7s" data-wow-offset="200">Ягоды</a>
+        <a href="#" data-filter="citrus" data-val="off" class="catalog__filter-item btn wow fadeInUp animate__animated"
+          data-wow-duration=".7s" data-wow-offset="200">Цитрусовые</a>
+        <a href="#" data-filter="stone" data-val="off" class="catalog__filter-item btn wow fadeInUp animate__animated"
+          data-wow-duration=".7s" data-wow-offset="200">Косточковые</a>
+      </div>
+      <div class="catalog__product-block">
+        <div data-filter="citrus" class="catalog__product-item">
+          <div class="product-img"><img src="./img/orange.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Апельсин</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">50₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="50" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-img="./img/orange.png" data-name="Апельсин" data-price="50"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="stone" class="catalog__product-item">
+          <div class="product-img"><img src="./img/greenApple.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Зеленое яблоко</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">45₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="45" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Зеленое яблоко" data-img="./img/greenApple.png" data-price="45"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="exotic" class="catalog__product-item">
+          <div class="product-img"><img class="ananas" src="./img/product-ananas.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Ананас</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">140₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="140" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Ананас" data-img="./img/product-ananas.png" data-price="140"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="berries" class="catalog__product-item">
+          <div class="product-img"><img src="./img/raspberry.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Малина</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">25₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="25" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Малина" data-img="./img/raspberry.png" data-price="25"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="exotic" class="catalog__product-item">
+          <div class="product-img"><img class="kokos" src="./img/kokos.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Кокос</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">35₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="35" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Кокос" data-img="./img/kokos.png" data-price="35"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="exotic" class="catalog__product-item">
+          <div class="product-img"><img class="banana" src="./img/banana.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Банан</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">8₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="8" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Банан" data-img="./img/banana.png" data-price="8"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="stone" class="catalog__product-item">
+          <div class="product-img"><img class="watermelon" src="./img/watermelon.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Арбуз</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">20₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="20" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Арбуз" data-img="./img/watermelon.png" data-price="20"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="exotic" class="catalog__product-item">
+          <div class="product-img"><img src="./img/mango-2.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Манго</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">50₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="50" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Манго" data-img="./img/mango-2.png" data-price="50"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="berries" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/blackberry.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Ежевика</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">50₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="50" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Ежевика" data-img="./img/blackberry.png" data-price="50"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="exotic" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/avokado.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Авокадо</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">45₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="45" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Авокадо" data-img="./img/avokado.png" data-price="45"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="rosa" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/pear.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Груша</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">140₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="140" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Груша" data-img="./img/pear.png" data-price="140"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="berries" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/grapes.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Виноград</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">25₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="25" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Виноград" data-img="./img/grapes.png" data-price="25"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="rosa" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/peach.png" class="peach" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Персик</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">35₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="35" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Персик" data-img="./img/peach.png" data-price="35"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="exotic" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/kivi.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Киви</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">8₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="8" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Киви" data-img="./img/kivi.png" data-price="8" class="product-btn"><i
+                  class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="citrus" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/lemon.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Лемон</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">20₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="20" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Лемон" data-img="./img/lemon.png" data-price="20"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+        <div data-filter="berries" class="catalog__product-item hidden">
+          <div class="product-img"><img src="./img/strawberry.png" alt=""></div>
+          <div class="product-description">
+            <h3 class="product-title">Клубника</h3>
+            <p class="product-text">1шт. - диаметр 75(мм),
+              масса 150(г)
+            </p>
+            <div class="product-interface">
+              <div class="product-price">50₴</div>
+              <div class="product-count">
+                <button data-count="minus" class="count-minus count-btn"><img src="./img/minus.png" alt=""></button>
+                <input data-price="50" class="count-input" type="text" value="1">
+                <button data-count="plus" class="count-plus count-btn"><img src="./img/plus.png" alt=""></button>
+              </div>
+              <button data-quantity="1" data-name="Клубника" data-img="./img/strawberry.png" data-price="50"
+                class="product-btn"><i class="fas fa-shopping-basket"></i></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <button class="catalog__more-fruits btn">Еще фруктов
+        <i class="fas fa-chevron-down more-arrow"></i>
+      </button>
+    </div>
+
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">о нас</h2>
+      <div class="about__content">
+        <div class="about-description wow fadeInLeftBig" data-wow-duration="1s" data-wow-offset="220">
+          <h3 class="about-description__title">Почему выбирают нас ?</h3>
+          <p class="about-description__text">У нас очень быстрая доставка и качественная упаковка.
+            Мы гарантируем, что любой товар будет доставлен
+            в целости и сохранности.
+          </p>
+          <h3 class="about-description__title">Чем мы отличаемся от магазинов ?</h3>
+          <p class="about-description__text">В отличии от супермаркетов, наши фрукты и ягоды
+            хранятся на плантациях в теплице.
+          </p>
+          <h3 class="about-description__title">Мы не используем химию!</h3>
+          <p class="about-description__text">Мы обеспечиваем для нашей продукции качествен-
+            ный грунт, хорошое освещение и поддержание
+            нужной температуры.
+          </p>
+          <h3 class="about-description__title">Только лучшие работники!</h3>
+          <p class="about-description__text">Наши сотрудники имеют многолетний опыт
+            выращивания фруктов в различных странах.
+          </p>
+
+        </div>
+        <div class="about-img wow fadeInRightBig" data-wow-duration="1s" data-wow-offset="290">
+          <img src="./img/about.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="delivery" class="delivery">
+    <img src="./img/delivery-bg.png" alt="" class="delivery-background">
+    <div class="container">
+
+      <div class="delivery__content">
+        <div class="delivery__description wow fadeInLeftBig" data-wow-duration="1s" data-wow-offset="220">
+          <h2 class="section-title wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">доставка</h2>
+          <p class="delivery__text1">Доставка осуществляется с 9:00 до 23:00</p>
+          <p class="delivery__text2">Дополнительная информация обсуждается с оператором!</p>
+          <p class="delivery__text3">
+            Мы не пользуемся различными службами доставки <br>
+            Все заказы доставляем лично! <br>
+            На данный момент у нас в наличии:
+          </p>
+          <div class="delivery__icon-block">
+            <div class="icon__item">
+              <div class="icon-img "><img class="truck" src="./img/truck.png" alt=""></div>
+              <p class="icon-subtext">больших
+                грузовых машин</p>
+              <h4 class="icon-count">10</h4>
+            </div>
+            <div class="icon__item">
+              <div class="icon-img"><img src="./img/delivery_icon.png" alt=""></div>
+              <p class="icon-subtext">средних
+                грузовых машин</p>
+              <h4 class="icon-count">25</h4>
+            </div>
+            <div class="icon__item">
+              <div class="icon-img"><img class="vehicle-img" src="./img/vehicle.png" alt=""></div>
+              <p class="icon-subtext">легковых грузовых
+                машин</p>
+              <h4 class="icon-count">35</h4>
+            </div>
+          </div>
+        </div>
+        <div class="delivery__img wow fadeInRightBig" data-wow-duration="1s" data-wow-offset="290">
+          <img src="./img/delivery.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <h2 class="section-title wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">отзывы</h2>
+
+      <div class="reviews__slider wow fadeInUp" data-wow-duration="1s" data-wow-offset="230">
+        <div class="reviews__slider-item">
+          <div class="reviews__slider-item__inner reviews-main-item">
+            <div class="reviews__item-content">
+              <h5 class="reviews-main__name">оцените нас</h5>
+              <div class="reviews__main-stars " data-total-star="">
+                <p class="star-main-item" data-star="5"><i class="fas fa-star"></i></p>
+                <p class="star-main-item" data-star="4"><i class="fas fa-star"></i></p>
+                <p class="star-main-item" data-star="3"><i class="fas fa-star"></i></p>
+                <p class="star-main-item" data-star="2"><i class="fas fa-star"></i></p>
+                <p class="star-main-item" data-star="1"><i class="fas fa-star"></i></p>
+              </div>
+              <button class="reviews-main__btn btn">Написать отзыв</button>
+
+            </div>
+          </div>
+        </div>
+        <div class="reviews__slider-item">
+          <div class="reviews__slider-item__inner">
+            <div class="reviews__item-content">
+              <div class="reviews__name-date">
+                <h5 class="reviews__name">Александр</h5>
+                <p class="reviews__date">25.07.2020</p>
+              </div>
+              <div class="reviews__stars">
+
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+
+              </div>
+              <div class="reviews__text">
+                Являюсь клиентом Fruits в коробке больше года. Отзывы пишу редко, но мне кажется, в преддверии череды
+                праздников информация будет полезна) Fruits - это магазин фруктов из Азии и Европы. Услуга доставки тоже
+                есть, но я ни разу не пользовалась - в центре бываю часто, поэтому всегда захожу сама. Беру небольшую
+                коробочку фруктов примерно раз в месяц, на выходных могу что-то по мелочи купить (авокадо, ягоды или
+                манго).
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews__slider-item">
+          <div class="reviews__slider-item__inner">
+            <div class="reviews__item-content">
+              <div class="reviews__name-date">
+                <h5 class="reviews__name">Диана</h5>
+                <p class="reviews__date">25.07.2020</p>
+              </div>
+              <div class="reviews__stars">
+
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+
+              </div>
+              <div class="reviews__text">
+                "Fruits" - это сервис по доставке экзотических фруктов, ягод и сладостей в Воронеже. Здесь круглый год
+                продаются дары природы, многие из которых не встретишь в обычном магазине. Ну или встретишь, а вот вкус
+                окажется ну совсем не тот. Особенно со мной согласятся те, кто не раз был в Тайланде, Вьетнаме, Тунисе и
+                ел настоящие манго, папайю, мангостины. Хочется полакомиться полезным? Не знаешь, что подарить
+                начальнику на новый год? Стоит обратить внимание на "Fruits".
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reviews__slider-item">
+          <div class="reviews__slider-item__inner">
+            <div class="reviews__item-content">
+              <div class="reviews__name-date">
+                <h5 class="reviews__name">Виктор</h5>
+                <p class="reviews__date">25.07.2020</p>
+              </div>
+              <div class="reviews__stars">
+
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+                <p class="star-item"><i class="fas fa-star gradient-icon"></i></p>
+
+              </div>
+              <div class="reviews__text">
+                Содержимое коробки было приличным. К сожалению, коробка шла в подарок и особо ворошить и фотографировать
+                ее не было времени. Но фрукты были разнообразные, не гнилые.
+                Доставку обещали до 17, а привезли в 19:30. Курьер был нерусский, с трудом изъяснялся, но в итоге мы
+                нашлись на более удобном адресе.
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts">
+    <!--FRUITS IMAGES-->
+    <div class="mango-block wow zoomIn" data-wow-duration="1s" data-wow-offset="220">
+      <img class="banana-img wow rotateIn" data-wow-duration="1.5s" data-wow-offset="220"
+        src="./img/Odin-banan-vid-sverhu-1.png" alt="">
+      <img class="mango-img wow rotateIn" data-wow-duration="1.5s" data-wow-offset="220" src="./img/mango.png" alt="">
+    </div>
+    <!--FRUITS IMAGES-->
+    <div class="container">
+      <h2 class="section-title wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">контакты</h2>
+      <div class="contacts__box">
+        <div class="contacts__map wow fadeInLeft" data-wow-duration="1s" data-wow-offset="240">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.791334044855!2d36.2356767690407!3d49.99652148255396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0ef418c6db1%3A0xa835224cc4064eb2!2z0YPQuy4g0J_Rg9GI0LrQuNC90YHQutCw0Y8sIDI1LCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNjEwMDA!5e0!3m2!1sru!2sua!4v1598534550406!5m2!1sru!2sua"
+            width="750" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+        </div>
+        <div class="contacts__description wow fadeInRight" data-wow-duration="1s" data-wow-offset="230">
+          <p class="contacts__title">Наш адресс:</p>
+          <p class="contacts__text">г.Харьков
+            Пушкинская 25
+          </p>
+          <p class="contacts__title">Режим работы:</p>
+          <p class="contacts__text">ПН-ПТ : 09:00 - 23:00 <br>
+            СБ-ВС : 09:00 - 21:00
+          </p>
+          <p class="contacts__title">Наши контакты:</p>
+          <p class="contacts__text">+380953215478
+            +380992551709
+          </p>
+          <p class="contacts__title">Мы в соц. сетях:</p>
+          <p class="contacts__text soc-icons">
+            <i class="fab fa-instagram-square"></i>
+            <i class="fab fa-vk"></i>
+            <i class="fab fa-twitter-square"></i>
+            <i class="fab fa-facebook-square"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <img class="footer-bg" src="./img/footer-bg.png" alt="">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__content-item">
+          <img src="./img/logo.png" alt="">
+          <p class="rights">Все права защищены ©</p>
+        </div>
+        <div class="footer__content-item">
+          <p class="content-item__title">навигация</p>
+          <div class="footer__nav">
+            <a href="#catalog" class="footer__nav-link">Каталог</a>
+            <a href="#about" class="footer__nav-link">О нас</a>
+            <a href="#delivery" class="footer__nav-link">Доставка</a>
+            <a href="#reviews" class="footer__nav-link">Отзывы</a>
+            <a href="#contacts" class="footer__nav-link">Контакты</a>
+          </div>
+        </div>
+        <div class="footer__content-item">
+          <p class="content-item__title">контакты</p>
+          <div class="footer__nav">
+            <p class="footer__title">Наш адресс:</p>
+            <p class="footer__text">г.Харьков
+              Пушкинская 25
+            </p>
+            <p class="footer__title">Режим работы:</p>
+            <p class="footer__text">ПН-ПТ : 09:00 - 23:00 <br>
+              СБ-ВС : 09:00 - 21:00
+            </p>
+          </div>
+        </div>
+        <div class="footer__content-item">
+          <p class="content-item__title">+380953215478 <br>
+            +380992551709</p>
+          <div class="footer__nav">
+            <p class="footer__title footer-social">Мы в соц. сетях:</p>
+            <p class="footer__icons soc-icons">
+              <i class="fab fa-instagram-square"></i>
+              <i class="fab fa-vk"></i>
+              <i class="fab fa-twitter-square"></i>
+              <i class="fab fa-facebook-square"></i>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="js/libs.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
